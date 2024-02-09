@@ -37,7 +37,7 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 
-7. To scrape books from Goodreads, run the following management command:
+7. Scrape books from Goodreads with the following management command:
 
 ```bash
 python manage.py scrape_books
