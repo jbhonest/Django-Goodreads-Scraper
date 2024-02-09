@@ -23,7 +23,7 @@ This Django project is designed to scrape information about books from Goodreads
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/django-goodreads-scraper.git
+    git clone https://github.com/jbhonest/django-goodreads-scraper.git
     cd django-goodreads-scraper
     ```
 

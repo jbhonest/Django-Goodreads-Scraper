@@ -1,4 +1,3 @@
-<!-- bookscraper/templates/books_list.html -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,18 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book List</title>
+    <style>
+        /* Add some basic styling for better presentation */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        img {
+            max-width: 100px;
+            margin-right: 20px;
+        }
+
+        .order-number {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Book List</h1>
-    <ul style="list-style-type: none;">
+    <ul>
         {% for book in books %}
         <li>
-            <strong>{{ book.title }}</strong> by {{ book.author }} <br>
-            Average Rating: {{ book.average_rating }} <br>
+            <span class="order-number">{{ forloop.counter }}.</span>
             <img src="{{ book.cover_image_url }}" alt="{{ book.title }} Cover">
+            <div>
+                <strong>{{ book.title }}</strong> by {{ book.author }} <br>
+                Average Rating: {{ book.average_rating }}
+            </div>
         </li>
-        <hr>
         {% endfor %}
     </ul>
 </body>
