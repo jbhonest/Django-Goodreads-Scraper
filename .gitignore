@@ -1,3 +1,11 @@
 /.vscode
 /db.sqlite3
 /venv
+scraperproject/local_settings.py
+scraperproject/__pycache__
+bookscraper/__pycache__
+migrations/__pycache__
+management/commands/__pycache__
+
+
+
