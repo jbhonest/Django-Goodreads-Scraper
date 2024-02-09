@@ -7,5 +7,5 @@ book_router.register('', BookViewSet)
 
 urlpatterns = [
     path('', book_list, name='book_list'),
-    path('api/', include(book_router.urls)),
+    path('api/books/', include(book_router.urls)),
 ]
