@@ -4,8 +4,8 @@
 scraperproject/local_settings.py
 scraperproject/__pycache__
 bookscraper/__pycache__
-migrations/__pycache__
-management/commands/__pycache__
+bookscraper/migrations/__pycache__
+bookscraper/management/commands/__pycache__
 
 
 
