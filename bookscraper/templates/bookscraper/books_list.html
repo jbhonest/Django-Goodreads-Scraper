@@ -1,0 +1,25 @@
+<!-- bookscraper/templates/books_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+</head>
+
+<body>
+    <h1>Book List</h1>
+    <ul style="list-style-type: none;">
+        {% for book in books %}
+        <li>
+            <strong>{{ book.title }}</strong> by {{ book.author }} <br>
+            Average Rating: {{ book.average_rating }} <br>
+            <img src="{{ book.cover_image_url }}" alt="{{ book.title }} Cover">
+        </li>
+        <hr>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
