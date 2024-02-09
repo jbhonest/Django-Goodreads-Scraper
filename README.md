@@ -53,7 +53,7 @@ python manage.py runserver
 
 
 ## API Endpoints
-* Book List: http://127.0.0.1:8000/api/books
+* Book List: http://127.0.0.1:8000/api/books/
 * Book Detail: http://127.0.0.1:8000/api/books/{book_id}/
 
 Use tools like curl, httpie, or Postman to interact with the API.
