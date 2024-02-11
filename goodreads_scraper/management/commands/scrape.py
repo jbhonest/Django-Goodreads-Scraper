@@ -6,7 +6,7 @@ from scraperproject.local_settings import PAGE_COUNT
 
 
 class Command(BaseCommand):
-    help = 'Scrape book or group list from goodreads.com and store in the database'
+    help = 'Scrape books or groups from goodreads.com and store them in database'
 
     def add_arguments(self, parser):
         subparsers = parser.add_subparsers(
@@ -42,7 +42,7 @@ class Command(BaseCommand):
             f"https://www.goodreads.com/search?query={book_name}&search_type=books&tab=books&page={i}" for i in range(1, PAGE_COUNT+1)]
 
         try:
-            # Removing all the existing records in the table
+            # Removing all the existing records
             Book.objects.all().delete()
 
             for url in urls:
@@ -98,7 +98,7 @@ class Command(BaseCommand):
                     print(f"Failed to download HTML code from {url}")
                     return
             self.stdout.write(self.style.SUCCESS(
-                'Successfully scraped and stored book list.'))
+                'Successfully scraped and stored books information.'))
         except Exception as exp:
             print(exp)
 
@@ -108,7 +108,7 @@ class Command(BaseCommand):
             f"https://www.goodreads.com/search?query={group_name}&search_type=groups&tab=groups&page={i}" for i in range(1, PAGE_COUNT+1)]
 
         try:
-            # Removing all the existing records in the table
+            # Removing all the existing records
             Group.objects.all().delete()
 
             for url in urls:
@@ -121,7 +121,7 @@ class Command(BaseCommand):
 
                     for group in groups:
 
-                        # Extracting group title
+                        # Extracting group name
                         name_tag = group.find("a",  class_='groupName')
                         name = name_tag.text.strip() if name_tag else None
 
@@ -136,7 +136,7 @@ class Command(BaseCommand):
                         else:
                             members = None
 
-                        # Extracting book cover image URL
+                        # Extracting group cover image URL
                         cover_img_tag = group.find("img")
                         cover_image_url = (
                             cover_img_tag["src"] if cover_img_tag else None
@@ -153,6 +153,6 @@ class Command(BaseCommand):
                     print(f"Failed to download HTML code from {url}")
                     return
             self.stdout.write(self.style.SUCCESS(
-                'Successfully scraped and stored group list.'))
+                'Successfully scraped and stored groups information.'))
         except Exception as exp:
             print(exp)
