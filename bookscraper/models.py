@@ -9,3 +9,12 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Group(models.Model):
+    title = models.CharField(max_length=255, null=False, blank=False)
+    members = models.IntegerField(null=False, blank=False)
+    cover_image_url = models.URLField(null=False, blank=False)
+
+    def __str__(self):
+        return self.title

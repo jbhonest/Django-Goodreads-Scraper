@@ -11,6 +11,7 @@ class BookViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = (DjangoFilterBackend,
                        filters.OrderingFilter, filters.SearchFilter,)
+    filterset_fields = ('author',)
     search_fields = ('title', 'author')
 
 

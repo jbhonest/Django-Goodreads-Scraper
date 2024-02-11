@@ -40,7 +40,7 @@ python manage.py migrate
 7. Scrape books from Goodreads with the following management command:
 
 ```bash
-python manage.py scrape_books
+python manage.py scrape
 ```
 
 8. Run the development server:
