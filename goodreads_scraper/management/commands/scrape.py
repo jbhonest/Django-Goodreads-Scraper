@@ -6,7 +6,7 @@ from scraperproject.local_settings import PAGE_COUNT
 
 
 class Command(BaseCommand):
-    help = 'Scrape books or groups from goodreads.com and store them in database'
+    help = 'Scrape books or groups information from goodreads.com and store them in database'
 
     def add_arguments(self, parser):
         subparsers = parser.add_subparsers(
