@@ -37,7 +37,7 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 
-7. Scrape books or groups containing art, for example, in their name:
+7. Scrape books or groups about art, for example:
 
 ```bash
 python manage.py scrape book art
