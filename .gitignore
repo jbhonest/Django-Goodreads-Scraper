@@ -3,9 +3,9 @@
 /venv
 scraperproject/local_settings.py
 scraperproject/__pycache__
-bookscraper/__pycache__
-bookscraper/migrations/__pycache__
-bookscraper/management/commands/__pycache__
+goodreads_scraper/__pycache__
+goodreads_scraper/migrations/__pycache__
+goodreads_scraper/management/commands/__pycache__
 
 
 
