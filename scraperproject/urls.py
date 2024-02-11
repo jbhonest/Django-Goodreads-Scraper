@@ -20,7 +20,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('goodreadsscraper.urls')),
+    path('', include('goodreads_scraper.urls')),
 
     # SimpleJWT URLs
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

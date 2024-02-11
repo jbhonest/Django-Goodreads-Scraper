@@ -17,4 +17,4 @@ class BookViewSet(viewsets.ReadOnlyModelViewSet):
 
 def book_list(request):
     books = Book.objects.all()
-    return render(request, 'goodreadsscraper/books_list.html', {'books': books})
+    return render(request, 'goodreads_scraper/books_list.html', {'books': books})

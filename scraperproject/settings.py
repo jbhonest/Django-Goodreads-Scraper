@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
 
     # My Apps
-    'goodreadsscraper.apps.GoodreadsScraperConfig',
+    'goodreads_scraper.apps.GoodreadsScraperConfig',
 
 
 ]
