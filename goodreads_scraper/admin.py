@@ -13,7 +13,7 @@ class BookAdmin(admin.ModelAdmin):
 
 @admin.register(Group)
 class GroupAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'members')
-    list_display_links = ('id', 'title')
-    search_fields = ('title',)
+    list_display = ('id', 'name', 'members')
+    list_display_links = ('id', 'name')
+    search_fields = ('name',)
     ordering = ('id',)

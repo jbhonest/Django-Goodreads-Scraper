@@ -122,8 +122,8 @@ class Command(BaseCommand):
                     for group in groups:
 
                         # Extracting group title
-                        title_tag = group.find("a",  class_='groupName')
-                        title = title_tag.text.strip() if title_tag else None
+                        name_tag = group.find("a",  class_='groupName')
+                        name = name_tag.text.strip() if name_tag else None
 
                         # Extracting group members
                         members_tag = group.find("span", class_="greyText")
@@ -144,7 +144,7 @@ class Command(BaseCommand):
 
                         # Creating Group object
                         Group.objects.create(
-                            title=title,
+                            name=name,
                             members=members,
                             cover_image_url=cover_image_url
                         )

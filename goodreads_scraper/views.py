@@ -21,7 +21,7 @@ class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = (DjangoFilterBackend,
                        filters.OrderingFilter, filters.SearchFilter,)
-    search_fields = ('title',)
+    search_fields = ('name',)
 
 
 def book_list(request):
