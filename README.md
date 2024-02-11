@@ -37,11 +37,11 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 
-7. Scrape books or groups about art, for example:
+7. Scrape books or groups about history, for example:
 
 ```bash
-python manage.py scrape book art
-python manage.py scrape group art
+python manage.py scrape book history
+python manage.py scrape group history
 ```
 
 8. Run the development server:
