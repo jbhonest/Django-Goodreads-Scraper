@@ -130,7 +130,7 @@ class Command(BaseCommand):
                         if members_tag:
                             members_text = members_tag.text.strip().split()
                             try:
-                                members = float(members_text[0])
+                                members = int(members_text[0])
                             except:
                                 members = -1
                         else:

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group List</title>
+    <style>
+        /* Add some basic styling for better presentation */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        img {
+            max-width: 100px;
+            margin-right: 20px;
+        }
+
+        .order-number {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Group List</h1>
+    <ul>
+        {% for group in groups %}
+        <li>
+            <span class="order-number">{{ forloop.counter }}.</span>
+            <img src="{{ group.cover_image_url }}" alt="{{ group.title }} Cover">
+            <div>
+                <strong>{{ group.title }}</strong><br>
+                {{ group.members }} members
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
