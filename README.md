@@ -37,14 +37,12 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 
-1. Scrape books containing art, for example, in their title or groups containing art, for example, in their name:
+7. Scrape books or groups containing art, for example, in their name:
 
 ```bash
 python manage.py scrape book art
 python manage.py scrape group art
 ```
-
-
 
 8. Run the development server:
 ```bash
@@ -55,11 +53,9 @@ python manage.py runserver
 * Book list: http://127.0.0.1:8000/books/
 * Group list: http://127.0.0.1:8000/groups/
 
-
 ## API Endpoints
 * Book List: http://127.0.0.1:8000/api/books/
 * Book Detail: http://127.0.0.1:8000/api/books/{book_id}/
-
 * Group List: http://127.0.0.1:8000/api/groups/
 * Group Detail: http://127.0.0.1:8000/api/groups/{group_id}/
 
@@ -72,7 +68,6 @@ First create an admin user:
 python manage.py createsuperuser
 ```
 Then access the Django admin interface at http://127.0.0.1:8000/admin/ to manage books and groups.
-
 
 ---
 Developed by Jamal Badiee (jbhonest@yahoo.com)
