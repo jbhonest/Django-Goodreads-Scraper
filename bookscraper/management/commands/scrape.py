@@ -39,7 +39,7 @@ class Command(BaseCommand):
 
         # List of URLs to scrape
         urls = [
-            f"https://www.goodreads.com/search?query={book_name}&tab=books&page={i}" for i in range(1, PAGE_COUNT+1)]
+            f"https://www.goodreads.com/search?query={book_name}&search_type=books&tab=books&page={i}" for i in range(1, PAGE_COUNT+1)]
 
         try:
             # Removing all the existing records in the table
@@ -105,7 +105,7 @@ class Command(BaseCommand):
     def handle_group(self, group_name):
         # List of URLs to scrape
         urls = [
-            f"https://www.goodreads.com/search?query={group_name}&tab=groups&page={i}" for i in range(1, PAGE_COUNT+1)]
+            f"https://www.goodreads.com/search?query={group_name}&search_type=groups&tab=groups&page={i}" for i in range(1, PAGE_COUNT+1)]
 
         try:
             # Removing all the existing records in the table
@@ -117,18 +117,16 @@ class Command(BaseCommand):
                     print(f"Extracting data from {url}")
 
                     soup = BeautifulSoup(response.text, "html.parser")
-                    groups = soup.find_all(
-                        "tr", itemscope=True, itemtype="http://schema.org/Book")
+                    groups = soup.find_all("tr")
 
                     for group in groups:
 
                         # Extracting group title
-                        title_tag = group.find("span", itemprop="name")
-                        title = title_tag.text.strip(
-                        ) if title_tag else None
+                        title_tag = group.find("a",  class_='groupName')
+                        title = title_tag.text.strip() if title_tag else None
 
                         # Extracting group members
-                        members_tag = group.find("span", class_="minirating")
+                        members_tag = group.find("span", class_="greyText")
                         if members_tag:
                             members_text = members_tag.text.strip().split()
                             try:
@@ -139,7 +137,7 @@ class Command(BaseCommand):
                             members = None
 
                         # Extracting book cover image URL
-                        cover_img_tag = group.find("img", itemprop="image")
+                        cover_img_tag = group.find("img")
                         cover_image_url = (
                             cover_img_tag["src"] if cover_img_tag else None
                         )
