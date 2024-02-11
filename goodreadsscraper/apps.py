@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class BookscraperConfig(AppConfig):
+class GoodreadsScraperConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'bookscraper'
+    name = 'goodreadsscraper'
