@@ -1,12 +1,12 @@
 # Django Goodreads Scraper
 
-This Django project is designed to scrape information about books from Goodreads and display it on a web page. It also provides a REST API endpoint to access the book information.
+This Django project is designed to scrape information about books and groups from Goodreads and display them on separate web pages. It also provides REST API endpoints to access the book and group information.
 
 ## Features
 
-- **Scraping:** Utilizes a management command to scrape book information (title, author, average rating, cover image URL) from Goodreads.
-- **Web Interface:** Displays the scraped book information on a web page.
-- **REST API:** Exposes a REST API endpoint to retrieve book information.
+- **Scraping:** Utilizes a management command to scrape book and group information from Goodreads.
+- **Web Interface:** Displays the scraped book and group information on separate web pages.
+- **REST API:** Exposes REST API endpoints to retrieve book and group information.
 
 
 ## Installation
@@ -37,11 +37,14 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 
-7. Scrape books from Goodreads with the following management command:
+1. Scrape books containing art, for example, in their title or groups containing art, for example, in their name:
 
 ```bash
-python manage.py scrape
+python manage.py scrape book art
+python manage.py scrape group art
 ```
+
+
 
 8. Run the development server:
 ```bash
@@ -49,12 +52,16 @@ python manage.py runserver
 ```
 
 ## Web Interface
-* Open your browser and go to http://127.0.0.1:8000/ to access the web interface.
+* Book list: http://127.0.0.1:8000/books/
+* Group list: http://127.0.0.1:8000/groups/
 
 
 ## API Endpoints
 * Book List: http://127.0.0.1:8000/api/books/
 * Book Detail: http://127.0.0.1:8000/api/books/{book_id}/
+
+* Group List: http://127.0.0.1:8000/api/groups/
+* Group Detail: http://127.0.0.1:8000/api/groups/{group_id}/
 
 Use tools like curl, httpie, or Postman to interact with the API.
 
