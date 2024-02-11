@@ -5,3 +5,6 @@ SECRET_KEY = ''
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+# Set the number of pages you want to be crawled
+PAGE_COUNT = 5

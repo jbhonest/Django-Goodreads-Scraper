@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from django.core.management.base import BaseCommand
 from bookscraper.models import Book
+from scraperproject.local_settings import PAGE_COUNT
 
 
 class Command(BaseCommand):
@@ -11,12 +12,8 @@ class Command(BaseCommand):
 
         # List of URLs to scrape
         urls = [
-            "https://www.goodreads.com/list/show/449.Must_Read_Classics?page=1",
-            "https://www.goodreads.com/list/show/449.Must_Read_Classics?page=2",
-            "https://www.goodreads.com/list/show/449.Must_Read_Classics?page=3",
-            "https://www.goodreads.com/list/show/449.Must_Read_Classics?page=4",
-            "https://www.goodreads.com/list/show/449.Must_Read_Classics?page=5",
-        ]
+            f"https://www.goodreads.com/list/show/449.Must_Read_Classics?page={i}" for i in range(1, PAGE_COUNT+1)]
+
         try:
             # Removing all the existing records in the table
             Book.objects.all().delete()
@@ -72,6 +69,7 @@ class Command(BaseCommand):
 
                 else:
                     print(f"Failed to download HTML code from {url}")
+                    return
             self.stdout.write(self.style.SUCCESS(
                 'Successfully scraped and stored book list.'))
         except Exception as exp:
