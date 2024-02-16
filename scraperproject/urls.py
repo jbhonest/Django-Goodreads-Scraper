@@ -21,7 +21,7 @@ from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 
 urlpatterns = [
-    path(getattr(settings, 'ADMIN_URL', 'admin/'), admin.site.urls),
+    path(getattr(settings, 'ADMIN_URL'), admin.site.urls),
     path('', include('goodreads_scraper.urls')),
 
     # SimpleJWT URLs
